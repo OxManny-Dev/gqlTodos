@@ -90,9 +90,9 @@ const resolvers = {
 		sayGreetings: (root) => {
 			return `Hi my name is ${root.firstName}`;
 		},
-		userTodos: (root) => {
+		userTodos:async  (root) => {
 			try {
-				return Todo.find({ userId: root._id });
+				return await Todo.find({ userId: root._id })
 			} catch (e) {
 				console.log('97');
 				throw new Error(e);
